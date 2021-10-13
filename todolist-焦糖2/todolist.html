@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<!-- made by yogmas -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist-yogmas</title>
+    <link rel="stylesheet" href="todolist.css">
+    <script src="todolist.js"></script>
+</head>
+
+<body>
+    <!-- 头部header -->
+    <header>
+        <div class="center">
+            <!-- 版心-->
+            <span>Todolist</span>
+            <input type="text" name="content" maxlength="50" placeholder="请输入今日计划Todolist" id="ipt">
+        </div>
+    </header>
+    <!-- 按钮部分 -->
+    <section>
+        <div class="center clearfix">
+            <div class="switch_day">
+                <label>
+                    <p>
+                        黑夜模式
+                    </p>
+                    <input type="checkbox" hidden id='check_day'>
+                    <span class="switch"></span>
+                </label>
+            </div>
+            <div class="switch_done">
+                <label>
+                    <p>隐藏已经完成</p>
+                    <input type="checkbox" hidden id='check_done'>
+                    <span class="switch"></span>
+                </label>
+            </div>
+            <div class="order">
+                <button id='order_up' class="up">升序</button>
+                <button id='order_down' class="down">降序</button>
+                <button id='clearall'>清空已经完成</button>
+            </div>
+        </div>
+    </section>
+    <!-- 主要内容部分 -->
+    <div class="w center">
+        <h2>正在进行</h2>
+        <ul class="todolist">
+            <!-- <li>
+                <input type="checkbox">
+                <div>awaw</div>
+                <div>2021-10-01</div>
+                <div></div>
+            </li> -->
+        </ul>
+        <h2>已经完成</h2>
+        <ol class="done">
+            <!-- <li>
+                <input type="checkbox" checked>
+                <div>awaw</div>
+                <div></div>
+                <div></div>
+            </li> -->
+        </ol>
+    </div>
+    <!-- javaScript遭遇bug 
+    1.js中onclick的循环遍历问题,通过从学长了解到的闭包问题等了解原因 并通过百度获得CSDN中的解决方法 https://blog.csdn.net/u014645632/article/details/53536330 
+    2.删除键只能点击一次并且enter保存数据过后也无法删除(已解决:在enter时调用一次删除函数,再每次删除后 删除内部函数 重新调用自己
+    原因:删除过后数组的长度变化导致
+    3.在checkbox点击后 正在进行和已经完成切换位置后,导致整个浏览器无论是输入数据还是点击checkbox都无法使用(已解决:用一个函数将整个更换checkbox的过程进行包裹，函数执行最后再调用一下自身这个函数,在enter时调用一次这个函数)
+    原因:不清楚  可能存在ul中的li删除到ol中的li添加(或者反过来)的过程中li发生了变化 需要在js中重新获取并且定义
+    )
+-->
+</body>
+
+</html>
